@@ -10,7 +10,7 @@ export class unSdg extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.title = "";
-  }
+  } //help
 
   static get properties() {
     return {
