@@ -1,50 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UN SDG Web Component</title>
+    <script type="module" src="/src/un-sdg.js"></script>
+  </head>
+  <body>
+    <div id="app"></div> <!-- Container for SDG components -->
+    <button>Change Goal</button>
 
-<head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for un-sdg">
+    <script>
+      const app = document.querySelector('#app'); // App container
+      const changeGoalButton = document.querySelector('button');
 
-  <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--ddd-accent-1);
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    un-sdg {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    un-sdg:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --un-sdg-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
-  </style>
-  <title>un-sdg</title>
-</head>
+      // Add event listener to the button that will change the goal of the last SDG component (Last goal/component in top row)
+      changeGoalButton.addEventListener('click', () => {
+      const lastSDG = app.querySelector('un-sdg:last-child');
+      const randomGoal = Math.floor(Math.random() * 17) + 1;
+      lastSDG.goal = randomGoal.toString(); // Set the goal of the last SDG to the random number
+      });
 
-<body>
-  <div id="demo">
-    <h1>un-sdg</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
-    <un-sdg></un-sdg>
-    <h2>Slot usage</h2>
-    <un-sdg data-accent="2" data-primary="17"><div>Sample slot content</div></un-sdg>
-    <h2>Property usage</h2>
-    <un-sdg id="example" title="Sample property title"></un-sdg>
-  </div>
-  <script type="module" src="./src/un-sdg.js"></script>
+      // Loop to create the goals from 1-17
+      for (let i = 1; i <= 17; i++) {
+        const sdg = document.createElement('un-sdg');
+        sdg.goal = i.toString();
+        app.appendChild(sdg);
+      }
+
+      // Creates a SDG component for the all image
+      const circleSDG = document.createElement('un-sdg');
+      circleSDG.goal = 'all';
+      app.appendChild(circleSDG);
+
+      // Creates a SDG component for the circle image
+      const allSDG = document.createElement('un-sdg');
+      allSDG.goal = 'circle';
+      app.appendChild(allSDG);
+
+      // Create a color-only SDG component for all the goals 
+      const colorOnlySDG = document.createElement('un-sdg');
+      colorOnlySDG.goal = '1';
+      colorOnlySDG.colorOnly = false;
+      app.appendChild(colorOnlySDG);
+    </script>
+
+<h2>Color-only set to "true"</h2>
+    <div id="color-only-app"></div> <!-- Container for color-only SDG components -->
+    
+    <script>
+      const colorOnlyApp = document.querySelector('#color-only-app'); // colorOnlyApp container
+      // Loop to create and append color-only SDG components for goals 1 to 17
+      for (let i = 1; i <= 17; i++) {
+        const sdg = document.createElement('un-sdg');
+        sdg.goal = i.toString();
+        sdg.colorOnly = true; // Set colorOnly to true to display only the color
+        colorOnlyApp.appendChild(sdg);
+        
+      }
+    </script>
 
   <!-- Take HAX, the Web and you further down the rabbit hole -->
   <style>
@@ -85,8 +99,6 @@
     <div class="content">
       <p>
       
-        <strong>Checkout project on github:</strong> <a href="https://github.com/AndrewShap-4/un-sdg" target="_blank" rel="nofollow">AndrewShap-4/un-sdg</a>
-        
       </p>
       <p>
         You can edit the current page by modifying <code>index.html</code><br />
