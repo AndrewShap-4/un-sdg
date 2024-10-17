@@ -56,9 +56,7 @@ export class UnSdg extends LitElement {
         height: 100%;
       }
 
-      .goal {
-        width: 100px;
-      }
+      
     `;
   }
 
@@ -83,10 +81,10 @@ export class UnSdg extends LitElement {
   updateGoalImage() {
     // If statement for the two special cases, 'all' and 'circle'
     if (this.goal === 'all') {
-      this._currentSrc = new URL('./lib/svgs/all.svg', import.meta.url).href;
+      this._currentSrc = new URL('./src/lib/svgs/all.svg', import.meta.url).href;
       this.alt = 'All Sustainable Development Goals';
     } else if (this.goal === 'circle') {
-      this._currentSrc = new URL('./lib/svgs/circle.png', import.meta.url).href;
+      this._currentSrc = new URL('./src/lib/svgs/circle.png', import.meta.url).href;
       this.alt = 'Sustainable Development Goals Circle';
     } else {
       // Handle goals 1-17
