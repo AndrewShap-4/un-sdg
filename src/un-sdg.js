@@ -91,7 +91,7 @@ export class UnSdg extends LitElement {
       const goalNumber = parseInt(this.goal); //Converts the goal string to an integer
       if (goalNumber >= 1 && goalNumber <= 17) { //Checks if the goal number is valid and sets the image for the corresponding goal
         this._currentSrc = new URL(
-          `./lib/svgs/goal-${goalNumber}.svg`,
+          `./src/lib/svgs/goal-${goalNumber}.svg`,
           import.meta.url
         ).href;
         this.alt = `Goal ${goalNumber}: ${goalData[goalNumber - 1].name}`;
