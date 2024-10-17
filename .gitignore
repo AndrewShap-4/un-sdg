@@ -19,7 +19,7 @@
 /_site/
 /dist/
 /out-tsc/
-/public/
+#/public/
 
 storybook-static
 custom-elements.json
