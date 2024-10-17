@@ -55,6 +55,10 @@ export class UnSdg extends LitElement {
         width: 100%;
         height: 100%;
       }
+
+      .goal {
+        width: 100px;
+      }
     `;
   }
 

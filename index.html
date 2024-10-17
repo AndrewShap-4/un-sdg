@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UN SDG Web Component</title>
+
     <script type="module" src="/src/un-sdg.js"></script>
   </head>
   <body>
-    <div id="app"></div> <!-- Container for SDG components -->
-    <button>Change Goal</button>
+    <div id="app"><h1>Random Statefulness</h1>
+      <button>Change Goal</button>
 
     <script>
       const app = document.querySelector('#app'); // App container
@@ -44,9 +45,10 @@
       colorOnlySDG.colorOnly = false;
       app.appendChild(colorOnlySDG);
     </script>
+    </div>
 
 <h2>Color-only set to "true"</h2>
-    <div id="color-only-app"></div> <!-- Container for color-only SDG components -->
+    <div id="color-only-app"> <!-- Container for color-only SDG components -->
     
     <script>
       const colorOnlyApp = document.querySelector('#color-only-app'); // colorOnlyApp container
@@ -59,6 +61,9 @@
         
       }
     </script>
+    </div> 
+
+
 
   <!-- Take HAX, the Web and you further down the rabbit hole -->
   <style>
