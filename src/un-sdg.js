@@ -65,9 +65,9 @@ export class UnSdg extends LitElement {
     super();
     this.goal = '1';
     this.label = '';
-    this.alt = `/lib/svgs/goal-${goalNumber}.svg`;
+    this.alt = '';
     this.colorOnly = false;
-    this._currentSrc = `/lib/svgs/goal-${goalNumber}.svg`;
+    this._currentSrc = '';
   }
 
 //Method that is called whenever the propertities are updated
