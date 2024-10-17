@@ -81,17 +81,17 @@ export class UnSdg extends LitElement {
   updateGoalImage() {
     // If statement for the two special cases, 'all' and 'circle'
     if (this.goal === 'all') {
-      this._currentSrc = new URL('./lib/svgs/all.svg', import.meta.url).href;
+      this._currentSrc = new URL('../lib/svgs/all.svg', import.meta.url).href;
       this.alt = 'All Sustainable Development Goals';
     } else if (this.goal === 'circle') {
-      this._currentSrc = new URL('./lib/svgs/circle.png', import.meta.url).href;
+      this._currentSrc = new URL('../lib/svgs/circle.png', import.meta.url).href;
       this.alt = 'Sustainable Development Goals Circle';
     } else {
       // Handle goals 1-17
       const goalNumber = parseInt(this.goal); //Converts the goal string to an integer
       if (goalNumber >= 1 && goalNumber <= 17) { //Checks if the goal number is valid and sets the image for the corresponding goal
         this._currentSrc = new URL(
-          `./lib/svgs/goal-${goalNumber}.svg`,
+          `../lib/svgs/goal-${goalNumber}.svg`,
           import.meta.url
         ).href;
         this.alt = `Goal ${goalNumber}: ${goalData[goalNumber - 1].name}`;
